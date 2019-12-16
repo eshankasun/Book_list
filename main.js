@@ -13,6 +13,7 @@ class UI {
         const books = Store.getBooks()
 
         books.forEach((book) => UI.addBookToList(book));
+        console.log(books)
     }
 
     static addBookToList(book) {
@@ -68,7 +69,7 @@ class Store {
     static addBook(book) {
         const books = Store.getBooks();
 
-        books.push(book);
+        books.push(book); console.log(book)
 
         localStorage.setItem('books', JSON.stringify(books))
     }
@@ -111,6 +112,8 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
         // UI clear fields
         UI.clearFields();
+
+        Store.addBook(book);
 
     }
 
